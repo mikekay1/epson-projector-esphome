@@ -183,6 +183,7 @@ struct TextSensorTypeInfo {
 
 inline constexpr TextSensorTypeInfo TEXT_SENSOR_TYPE_INFO[] = {
     {TextSensorType::SERIAL_NUMBER, QueryType::SERIAL_NUMBER, "Serial Number"},
+    {TextSensorType::POWER_STATUS, QueryType::POWER, "Power Status"},
 };
 
 inline constexpr std::size_t TEXT_SENSOR_TYPE_INFO_SIZE =
