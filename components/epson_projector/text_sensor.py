@@ -25,9 +25,9 @@ CONFIG_SCHEMA = projector_platform_schema(
             icon=ICON_SERIAL_NUMBER,
             entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
         ),
-        "power_status": text_sensor.text_sensor_schema(
-        EpsonTextSensor,
-        icon="mdi:projector",
+        cv.Optional("power_status"): text_sensor.text_sensor_schema(
+            EpsonTextSensor,
+            icon="mdi:projector",
         ),
     }
 )
