@@ -28,11 +28,31 @@ void EpsonTextSensor::on_state_change() {
     return;
   }
   std::string value;
-  switch (this->sensor_type_) {
-    case TextSensorType::SERIAL_NUMBER:
-      value = this->parent_->serial_number();
-      break;
-  }
+switch (this->sensor_type_) {
+  case TextSensorType::SERIAL_NUMBER:
+    value = this->parent_->serial_number();
+    break;
+
+  case TextSensorType::POWER_STATUS:
+    switch (this->parent_->power_state()) {
+      case PowerState::STANDBY:
+        value = "Off";
+        break;
+      case PowerState::ON:
+        value = "On";
+        break;
+      case PowerState::WARMUP:
+        value = "Warming Up";
+        break;
+      case PowerState::COOLDOWN:
+        value = "Cooling Down";
+        break;
+      default:
+        value = "Unknown";
+        break;
+    }
+    break;
+}  
   if (!value.empty()) {
     this->publish_state(value);
   }
