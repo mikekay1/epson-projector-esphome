@@ -15,6 +15,7 @@ TextSensorType = epson_projector_ns.enum("TextSensorType", is_class=True)
 
 TEXT_SENSOR_TYPES = {
     CONF_SERIAL_NUMBER: TextSensorType.SERIAL_NUMBER,
+    "power_status": TextSensorType.POWER_STATUS,
 }
 
 CONFIG_SCHEMA = projector_platform_schema(
@@ -23,6 +24,10 @@ CONFIG_SCHEMA = projector_platform_schema(
             EpsonTextSensor,
             icon=ICON_SERIAL_NUMBER,
             entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
+        ),
+        "power_status": text_sensor.text_sensor_schema(
+        EpsonTextSensor,
+        icon="mdi:projector",
         ),
     }
 )
