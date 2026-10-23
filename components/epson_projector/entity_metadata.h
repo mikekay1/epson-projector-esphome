@@ -172,6 +172,7 @@ constexpr const BinarySensorTypeInfo *find_binary_sensor_type_info(BinarySensorT
 
 enum class TextSensorType : uint8_t {
   SERIAL_NUMBER,
+  POWER_STATUS,
 };
 
 struct TextSensorTypeInfo {
